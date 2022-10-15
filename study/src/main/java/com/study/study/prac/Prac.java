@@ -7,9 +7,12 @@ public class Prac {
         String tutor = "김시원";
         int days = 30;
         Course course = new Course(title, tutor, days);
-        System.out.println(course.title);
-        System.out.println(course.tutor);
-        System.out.println(course.days);
+        course.setTitle(title);
+        course.setTutor(tutor);
+        course.setDays(days);
+        System.out.println(course.getTitle());
+        System.out.println(course.getTutor());
+        System.out.println(course.getDays());
     }
 
 }

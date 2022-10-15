@@ -1,9 +1,9 @@
 package com.study.study.prac;
 
 public class Course {
-    public String title;
-    public String tutor;
-    public int days;
+    private String title;
+    private String tutor;
+    private int days;
 
     // 기본생성자
     public Course(){
@@ -16,5 +16,27 @@ public class Course {
         this.tutor = tutor;
         this.days = days;
         // this. 이걸 안해주면 값이 null로 나옴.
+    }
+
+    // Setter
+    public void setTitle(String title){
+        this.title = title;
+    }
+    public void setTutor(String tutor){
+        this.tutor = tutor;
+    }
+    public void setDays(int days){
+        this.days = days;
+    }
+
+    // Getter
+    public String getTitle(){
+        return this.title;
+    }
+    public String getTutor(){
+        return this.tutor;
+    }
+    public int getDays(){
+        return this.days;
     }
 }
