@@ -5,10 +5,7 @@ import com.study.study.domain.CourseRepository;
 import com.study.study.domain.CourseRequestDto;
 import com.study.study.service.CourseService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,5 +34,10 @@ public class CourseController {
     @GetMapping("/api/courses")
     public List<Course> getCourses() { // Course의 List를 반환하라는 메소드
         return courseRepository.findAll();
+    }
+
+    @PutMapping("/api/courses/{id}")
+    public Long updateCourse(@PathVariable Long id, @RequestBody CourseRequestDto courseRequestDto) {
+        return courseService.update(id, courseRequestDto);
     }
 }
