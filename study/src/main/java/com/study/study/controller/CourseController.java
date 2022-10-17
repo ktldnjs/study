@@ -40,4 +40,13 @@ public class CourseController {
     public Long updateCourse(@PathVariable Long id, @RequestBody CourseRequestDto courseRequestDto) {
         return courseService.update(id, courseRequestDto);
     }
+
+    @DeleteMapping("/api/courses/{id}")
+    public Long deleteCourse(@PathVariable Long id) {
+        courseRepository.deleteById(id);
+        return id;
+
+        // return courseRepository.deleteById(id);
+        // 라고 하면 오류 나는 이유 : courseRepository.deleteById(id) 는 아무것도 반환을 안하기 때문
+    }
 }
