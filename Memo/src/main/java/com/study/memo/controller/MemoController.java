@@ -5,10 +5,7 @@ import com.study.memo.domain.MemoRepository;
 import com.study.memo.domain.MemoRequestDto;
 import com.study.memo.service.MemoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +26,17 @@ public class MemoController {
     @GetMapping("/api/memos")
     public List<Memo> readMemo(){
         return memoRepository.findAllByOrderByModifiedAtDesc();
+    }
+
+    @PutMapping("/api/memos/{id}")
+    public Long updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto memoRequestDto){
+        return memoService.update(id, memoRequestDto);
+    }
+
+    @DeleteMapping("/api/memos/{id}")
+    public Long deleteMemo(@PathVariable Long id){
+        memoRepository.deleteById(id);
+        return id;
     }
 
 }
